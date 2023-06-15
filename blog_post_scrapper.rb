@@ -31,7 +31,7 @@ def scrape_website
 
     save_post_to_disk(post_url)
 
-    take_a_break_for(rand(45..19))
+    take_a_break_for(rand(45..119).to_i)
   end
 
   prompt.say("✔ Done!", color: :green)
