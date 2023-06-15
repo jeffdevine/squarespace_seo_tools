@@ -1,0 +1,15 @@
+require:
+  - standard
+  - rubocop-rspec
+
+inherit_gem:
+  standard: config/base.yml
+
+AllCops:
+  NewCops: enable
+  Exclude:
+    - solution
+    - vendor/bundle/**/*
+
+RSpec:
+  Enabled: true
