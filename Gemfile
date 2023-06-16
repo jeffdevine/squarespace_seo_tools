@@ -3,6 +3,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 # XML parser
 gem "nokogiri", "~> 1.15.2"
+# OpenAI library for Ruby
+gem "ruby-openai", "~> 4.0.0"
 # Powerful interactive command line prompt.
 gem "tty-prompt", "~> 0.23.1"
 # Terminal spinner for tasks that have non-deterministic time frame
