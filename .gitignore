@@ -50,4 +50,5 @@ build-iPhoneSimulator/
 # Don't check in any downloaded html
 posts/
 notes/
-prompts
+prompts/
+json-ld/
