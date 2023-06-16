@@ -38,7 +38,7 @@ end
 
 def make_readable(text)
   spinner.auto_spin
-  readable_text = open_ai_client.call("Make this text easy to understand: #{text}")
+  readable_text = open_ai_client.call("Simplify the following text: #{text}")
   spinner.success("Done!")
   prompt.say(" - Old: #{text}", color: :red)
   prompt.say(" - New: #{readable_text}", color: :green)
