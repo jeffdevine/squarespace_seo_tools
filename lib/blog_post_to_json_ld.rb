@@ -9,13 +9,15 @@ require_relative "open_ai_client"
 
 FAQ_SCHEMA = {"@context": "https://schema.org", "@type": "FAQPage"}
 
-def build_faq_structure(faq)
+def build_faq_structure(faq, reword_answer: false)
+  answer = faq.next_element.text.strip
+  answer = make_readable(answer) if reword_answer
   {
     "@type": "Question",
     name: faq.text.strip,
     acceptedAnswer: {
       "@type": "Answer",
-      text: make_readable(faq.next_element.text.strip)
+      text: answer
     }
   }
 end
