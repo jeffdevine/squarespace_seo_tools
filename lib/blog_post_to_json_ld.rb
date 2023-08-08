@@ -5,7 +5,7 @@ require "pastel"
 require "tty-prompt"
 require "tty-spinner"
 require "json"
-require_relative "open_ai_client"
+require_relative "services/open_ai_client"
 
 FAQ_SCHEMA = {"@context": "https://schema.org", "@type": "FAQPage"}
 

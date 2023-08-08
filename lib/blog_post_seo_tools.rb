@@ -5,7 +5,7 @@ require "pastel"
 require "tty-prompt"
 require "tty-spinner"
 require "json"
-require_relative "open_ai_client"
+require_relative "services/open_ai_client"
 require "pry-byebug"
 
 def open_ai_client
@@ -40,8 +40,6 @@ def process_html(html_file)
   titles = send_text_to_open_ai(seo_data[:body], "Write five actionable blog titles and five clickbait titles based on the text delimited by <>. Return your results as a json array with the key titles.")
 
   keywords = send_text_to_open_ai(seo_data[:body], "Generate 5 keywords based on the text delimited by <>. Return your results as a json with the key keywords.")
-
-  binding.pry
 
   descriptions = JSON.parse(keywords).fetch("keywords").map do |keyword|
     send_text_to_open_ai(seo_data[:body], "Write a meta description of a maximum of 150 characters based on the text delimited by <> and use the keyword #{keyword} in the meta description.")
