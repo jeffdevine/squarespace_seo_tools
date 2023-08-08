@@ -1,19 +1,29 @@
 # GPT JSON-LD Fun
+Tools that use OpenAI to help improve SEO for a Squarespace-hosted Blog
 
-This is an experiment to use [OpenAI](https://openai.com) to generate JSON-LD FAQ [schema.org](https://schema.org) from blog posts.
+## Overview
+This was an experiment to use [OpenAI](https://openai.com) to generate JSON-LD FAQ [schema.org](https://schema.org) from blog posts.
 
-I had a blog hosted on Squarespace that I wanted JSON-LD entries for [SREP FAQs](https://developers.google.com/search/docs/appearance/structured-data/faqpage) and there is no automated way to do this. I had to manually create each entry. I would like to know if I can use OpenAI to generate the JSON-LD for me.
+I had a blog hosted on Squarespace that I wanted JSON-LD entries for [SREP FAQs](https://developers.google.com/search/docs/appearance/structured-data/faqpage) and there is no automated way to do this. I'd originally set out to have OpenAI convert the HTML into JSON-LD, but that was using an LLM to solve the wrong problem.
 
-Because of how the blog is structured, I'm making these massive assumptions:
+The codebase has evolved into a few tools that use OpenAI to help improve SEO for a Squarespace-hosted Blog:
+
+ - `blog_post_scrapper` - Gently scrapes the blog posts and saves them locally
+ - `blog_post_seo_tools` - Uses the local cahce of blog posts and uses OpenAI to suggest better titles and descriptions
+ - `blog_post_to_json_ld` - Converts the blog posts into JSON-LD FAQ files and optionally can optimize the `answer` with OpenAI
+
+Note that these tools make the following huge assumptions:
 
 - The blog is hosted at `/blog`
 - Each blog is structured to use `h2` and `p` for questions and answers respectively
-- There is some human intervention to glue the components together
+- The local directory `./blog` is the local cache of all blog posts (this is what `blog_post_scrapper` sorts)
 
-## To Do
-- [ ] OpenAI-assisted web scraper
-- [ ] Send each blog post to OpenAI to get summarizations for each question/answer
-- [ ] Have OpenAI covert `h2`/`p` to JSON-LD.
+### To Do
+
+- [ ] Test coverage everywhere
+- [ ] Moving share logic into services
+- [ ] `blog_post_seo_tools` still needs work and ideally would use a more sophistcated prompt rather than multiple calls to OpenAI
+- [ ] `blog_post_scrapper` should take a date as input and only scrape posts that are newer than that date
 
 # Installation
 
