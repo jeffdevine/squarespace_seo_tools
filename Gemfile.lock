@@ -121,6 +121,8 @@ GEM
       rubocop-performance (~> 1.16.0)
     tty-color (0.6.0)
     tty-cursor (0.7.1)
+    tty-logger (0.6.0)
+      pastel (~> 0.8)
     tty-prompt (0.23.1)
       pastel (~> 0.8)
       tty-reader (~> 0.8)
@@ -152,6 +154,7 @@ DEPENDENCIES
   ruby-openai (~> 4.0.0)
   simplecov (= 0.17)
   standard (~> 1.28.0)
+  tty-logger (~> 0.6.0)
   tty-prompt (~> 0.23.1)
   tty-spinner (~> 0.9.3)
 
