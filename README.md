@@ -1,4 +1,4 @@
-# GPT JSON-LD Fun
+# Squarespace SEO Tools
 Tools that use OpenAI to help improve SEO for a Squarespace-hosted Blog
 
 ## Overview
@@ -57,13 +57,13 @@ echo -e "\n. $(brew --prefix asdf)/libexec/asdf.sh" >> ${ZDOTDIR:-~}/.zshrc
 Clone the latest code from github
 
 ```
-git clone git@github.com:jeffdevine/gpt-json-ld-fun.git
+git clone git@github.com:jeffdevine/squarespace_seo_tools.git
 ```
 
 Change to the source directory
 
 ```
-cd gpt-json-ld-fun
+cd squarespace_seo_tools
 ```
 
 Run `bundle` to install the required gems:
