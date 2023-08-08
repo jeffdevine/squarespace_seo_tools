@@ -61,3 +61,16 @@ Run `bundle` to install the required gems:
 ```
 bundle install
 ```
+
+### Development Tools
+To run the test suite, execute:
+
+```
+bundle exec rspec
+```
+
+To look for code and linting issues, run the following:
+
+```
+bundle exec rubocop
+```
