@@ -8,10 +8,6 @@ require "json"
 require_relative "services/open_ai_client"
 require "pry-byebug"
 
-def open_ai_client
-  @open_ai_client ||= OpenAIClient.new
-end
-
 def build_model_from_html(html_file)
   document = File.open(html_file) { |file| Nokogiri::HTML(file) }
 
@@ -29,7 +25,7 @@ end
 
 def send_text_to_open_ai(text, prompt)
   spinner.auto_spin
-  open_ai_client.call("#{prompt} <#{text}>")
+  OpenAIClient.call(message: "#{prompt} <#{text}>").value!
   spinner.success("Done!")
 end
 
