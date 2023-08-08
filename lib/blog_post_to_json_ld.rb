@@ -22,10 +22,6 @@ def build_faq_structure(faq, reword_answer: false)
   }
 end
 
-def open_ai_client
-  @open_ai_client ||= OpenAIClient.new
-end
-
 def extract_faqs_from_html(html_file)
   document = File.open(html_file) { |file| Nokogiri::HTML(file) }
 
@@ -40,7 +36,7 @@ end
 
 def make_readable(text)
   spinner.auto_spin
-  readable_text = open_ai_client.call("Simplify the following text: #{text}")
+  readable_text = OpenAIClient.call(message: "Simplify the following text: #{text}").value!
   spinner.success("Done!")
   prompt.say(" - Old: #{text}", color: :red)
   prompt.say(" - New: #{readable_text}", color: :green)

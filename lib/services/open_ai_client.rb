@@ -1,9 +1,13 @@
 require "openai"
+require_relative "service"
 
-class OpenAIClient
-  def call(message)
-    @message = message
-    send_message_and_parse_response
+class OpenAIClient < Service
+  option :message, type: Dry::Types["strict.string"]
+
+  def call
+    Success.new(send_message_and_parse_response)
+  rescue => e
+    log_with_failure(e.message)
   end
 
   private
@@ -31,6 +35,7 @@ class OpenAIClient
   end
 
   def parse_response(response)
+    logger.debug(response)
     response.dig("choices", 0, "message", "content")
   end
 
