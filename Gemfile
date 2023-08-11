@@ -13,6 +13,9 @@ gem "dry-types", "~> 1.7.1"
 gem "dry-validation", "~> 1.10.0"
 # XML parser
 gem "nokogiri", "~> 1.15.2"
+# XML to Hash translator
+gem "nori"
+
 # OpenAI library for Ruby
 gem "ruby-openai", "~> 4.0.0"
 # A readable, structured and beautiful logging for the terminal
@@ -23,6 +26,7 @@ gem "tty-prompt", "~> 0.23.1"
 gem "tty-spinner", "~> 0.9.3"
 
 group :test do
+  gem "pry-byebug"
   # Ruby testing framework
   gem "rspec", "~> 3.12.0"
   # Format RSpec output for CircleCI
