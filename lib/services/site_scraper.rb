@@ -35,7 +35,7 @@ class SiteScraper < CLIService
         "posts"
       )
 
-      take_a_break_for(rand(@sleep_range).to_i)
+      take_a_break_for(rand(45..119).to_i)
     end
   end
 
