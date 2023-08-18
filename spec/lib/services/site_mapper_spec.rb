@@ -1,7 +1,7 @@
 require "spec_helper"
-require_relative "../../../lib/services/sitemapper"
+require_relative "../../../lib/services/site_mapper"
 
-RSpec.describe(Sitemapper) do
+RSpec.describe(SiteMapper) do
   let(:url) { "https://example.com/" }
   let(:first_post) { "#{url}blog/post_1" }
   let(:second_post) { "#{url}blog/post_2" }

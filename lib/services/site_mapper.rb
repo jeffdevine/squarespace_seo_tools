@@ -4,7 +4,7 @@ require "nori"
 require "net/http"
 require "pry-byebug"
 
-class Sitemapper < CLIService
+class SiteMapper < CLIService
   option :url, type: Dry::Types["strict.string"]
   option :path, optional: true, type: Dry::Types["strict.string"]
   option :last_modification, optional: true, type: Dry::Types["strict.date"]
@@ -17,6 +17,10 @@ class Sitemapper < CLIService
 
   private
 
+  def clean_sitemap
+    sitemap_as_hash.reject { |node| node["lastmod"].nil? }
+  end
+
   def limit_sitemap_by_path(pages)
     pages = pages.select { |node| node["loc"].include?("/#{path}/") } if path
     pages
@@ -28,7 +32,7 @@ class Sitemapper < CLIService
   end
 
   def load_sitemap_and_parse
-    pages = limit_sitemap_by_path(sitemap_as_hash)
+    pages = limit_sitemap_by_path(clean_sitemap)
     pages = limit_sitemap_by_last_modification_date(pages)
     pages.map { |node| node["loc"] }
   end

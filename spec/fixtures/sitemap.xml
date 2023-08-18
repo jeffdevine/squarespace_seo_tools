@@ -17,4 +17,9 @@
     <priority>0.75</priority>
     <lastmod>2023-09-14</lastmod>
   </url>
+  <url>
+    <loc>https://example.com/blog/category/technology</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
 </urlset>
