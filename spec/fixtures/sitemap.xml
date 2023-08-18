@@ -1,0 +1,25 @@
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://example.com/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.75</priority>
+    <lastmod>2022-10-23</lastmod>
+  </url>
+  <url>
+    <loc>https://example.com/blog/post_1</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <lastmod>2023-04-21</lastmod>
+  </url>
+  <url>
+    <loc>https://example.com/blog/post_2</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <lastmod>2023-09-14</lastmod>
+  </url>
+  <url>
+    <loc>https://example.com/blog/category/technology</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+</urlset>
