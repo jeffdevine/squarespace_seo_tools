@@ -157,7 +157,7 @@ DEPENDENCIES
   dry-types (~> 1.7.1)
   dry-validation (~> 1.10.0)
   nokogiri (~> 1.15.2)
-  nori
+  nori (~> 2.6.0)
   pry-byebug
   rspec (~> 3.12.0)
   rspec_junit_formatter (~> 0.4)

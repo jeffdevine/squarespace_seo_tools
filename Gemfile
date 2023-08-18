@@ -14,7 +14,7 @@ gem "dry-validation", "~> 1.10.0"
 # XML parser
 gem "nokogiri", "~> 1.15.2"
 # XML to Hash translator
-gem "nori"
+gem "nori", "~> 2.6.0"
 
 # OpenAI library for Ruby
 gem "ruby-openai", "~> 4.0.0"
