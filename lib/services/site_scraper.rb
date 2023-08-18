@@ -1,9 +1,11 @@
-require_relative "sitemapper"
+require_relative "site_mapper"
 
 class SiteScraper < CLIService
   option :site, type: Dry::Types["strict.string"]
   option :path, optional: true, type: Dry::Types["strict.string"]
   option :last_modification, optional: true, type: Dry::Types["strict.date"]
+
+  DEFAULT_DATE = Date.today.prev_year(20)
 
   def call
     Success.new(scrape_site)
@@ -14,7 +16,7 @@ class SiteScraper < CLIService
   private
 
   def pages
-    @pages ||= Sitemapper.call(url: site, path: path, last_modification: last_modification).value_or([])
+    @pages ||= SiteMapper.call(url: site, path: path, last_modification: last_modification || DEFAULT_DATE).value_or([])
   end
 
   def scrape_site

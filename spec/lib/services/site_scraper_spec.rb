@@ -22,10 +22,10 @@ RSpec.describe(SiteScraper) do
     it "returns saves posts for a specific path" do
       stub_network_calls
 
-      described_class.call(site: site, path: "blog")
+      described_class.call(last_modification: today, path: "blog", site: site)
 
-      expect(Sitemapper).to have_received(:call).with(
-        last_modification: nil, path: "blog", url: site
+      expect(SiteMapper).to have_received(:call).with(
+        last_modification: today, path: "blog", url: site
       )
     end
 
@@ -34,7 +34,7 @@ RSpec.describe(SiteScraper) do
 
       described_class.call(site: site, last_modification: today)
 
-      expect(Sitemapper).to have_received(:call).with(
+      expect(SiteMapper).to have_received(:call).with(
         last_modification: today, path: nil, url: site
       )
     end
@@ -42,7 +42,7 @@ RSpec.describe(SiteScraper) do
 
   def stub_network_calls
     allow(TTY::Spinner).to receive(:new).and_return(mock_spinner)
-    allow(Sitemapper).to receive(:call).and_return(sitemap)
+    allow(SiteMapper).to receive(:call).and_return(sitemap)
     allow(Net::HTTP).to receive(:get).and_return(html)
   end
 
