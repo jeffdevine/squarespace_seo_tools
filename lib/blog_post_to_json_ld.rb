@@ -49,7 +49,7 @@ def process_html_to_ld_json(html_file)
 
   write_json_ld_to_file(html_file, FAQ_SCHEMA.merge(mainEntity: faqs)) unless faqs.empty?
 
-  prompt.say(" [✔] Processed #{html_file}")
+  prompt.say(" [#{Pastel.new.green("✔")}] Processed #{html_file}")
 end
 
 def prompt
