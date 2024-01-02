@@ -8,6 +8,7 @@ require "json"
 require_relative "services/open_ai_client"
 
 FAQ_SCHEMA = {"@context": "https://schema.org", "@type": "FAQPage"}
+PROJECT_ROOT = File.expand_path("..", __dir__)
 
 def build_faq_structure(faq, reword_answer: false)
   answer = faq.next_element.text.strip
@@ -31,7 +32,7 @@ def extract_faqs_from_html(html_file)
 end
 
 def html_files
-  @html_file ||= Dir.glob(File.join("posts", "*.html"))
+  @html_file ||= Dir.glob(File.join("#{PROJECT_ROOT}/posts/", "*.html"))
 end
 
 def make_readable(text)
@@ -48,7 +49,7 @@ def process_html_to_ld_json(html_file)
 
   write_json_ld_to_file(html_file, FAQ_SCHEMA.merge(mainEntity: faqs)) unless faqs.empty?
 
-  prompt.say(" [✔] Processed #{html_file}")
+  prompt.say(" [#{Pastel.new.green("✔")}] Processed #{html_file}")
 end
 
 def prompt
@@ -60,7 +61,7 @@ def spinner
 end
 
 def write_json_ld_to_file(filename, json_ld)
-  Dir.mkdir("json-ld") unless Dir.exist?("json-ld")
+  Dir.mkdir("#{PROJECT_ROOT}/json-ld") unless Dir.exist?("#{PROJECT_ROOT}/json-ld")
   File.write(filename.gsub(".html", ".json").gsub("posts/", "json-ld/"), JSON.pretty_generate(json_ld))
 end
 
