@@ -4,6 +4,8 @@ require "tty-spinner"
 require_relative "service"
 
 class CLIService < Service
+  PROJECT_ROOT = File.expand_path("../..", __dir__)
+
   private
 
   def fetch_url(url)
